@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Krupa M Korishetty — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F4F7; --surface:#FFFFFF; --text:#14213D; --muted:#4A5568; --rule:#D3D8E2; --accent:#14213D; --on-accent:#FFFFFF;
+  --frame:#1B1E27; --focus:#0A4DB5;
+  --c-red:#B3122B; --c-orange:#E4620F; --c-yellow:#F2C400; --c-green:#0B7A48; --c-blue:#0E47A1; --c-white:#F2F2EE;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1118; --surface:#161A23; --text:#E9ECF3; --muted:#A2AABB; --rule:#2A303C; --accent:#E9ECF3; --on-accent:#0E1118;
+    --frame:#05070A; --focus:#8DB4FF;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1118; --surface:#161A23; --text:#E9ECF3; --muted:#A2AABB; --rule:#2A303C; --accent:#E9ECF3; --on-accent:#0E1118;
+  --frame:#05070A; --focus:#8DB4FF;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 4rem);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;font-size:1.02rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-weight:600;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.25rem}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:3.5rem;gap:1rem}
+.brand{font-family:"Newsreader",serif;font-weight:600;font-size:1.25rem;text-decoration:none}
+.nav ul{display:flex;gap:1.25rem;list-style:none;margin:0;padding:0;overflow-x:auto;white-space:nowrap}
+.nav a.l{text-decoration:none;color:var(--muted);font-size:.92rem}
+.nav a.l:hover{color:var(--text);text-decoration:underline;text-underline-offset:4px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:3rem;align-items:center;padding:3.5rem 0}
+.name-row{display:flex;align-items:center;gap:1.1rem;margin-bottom:.2rem}
+.avatar{width:76px;height:76px;border-radius:50%;object-fit:cover;flex:none;border:2px solid var(--rule);box-shadow:0 4px 10px -4px rgba(0,0,0,.25)}
+.hero h1{font-size:clamp(2.2rem,6.4vw,4.4rem);line-height:1.05;letter-spacing:-.02em}
+.role{font-family:"Newsreader",serif;font-size:clamp(1.15rem,2.4vw,1.45rem);margin:1rem 0 .25rem}
+.sub{color:var(--muted);margin:0 0 1.5rem}
+.actions{display:flex;flex-wrap:wrap;gap:.7rem}
+.btn{display:inline-block;padding:.65rem 1.15rem;border-radius:6px;text-decoration:none;font-weight:600;font-size:.95rem;border:2px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--on-accent)}
+.btn.primary:hover{opacity:.88}
+.btn.ghost:hover{background:var(--accent);color:var(--on-accent)}
+
+/* cube */
+.cube-wrap{width:100%;max-width:420px;justify-self:end}
+.cube{background:var(--frame);padding:9px;border-radius:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:9px;box-shadow:0 12px 28px -14px rgba(0,0,0,.5)}
+.sticker{aspect-ratio:1;border:0;border-radius:8px;padding:.5rem;cursor:pointer;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;text-align:left;font-family:inherit;font-weight:600;font-size:clamp(.7rem,2.4vw,.88rem);line-height:1.15;transition:background-color .35s ease,transform .15s ease}
+.sticker svg{width:1.6em;height:1.6em;flex:none}
+.sticker:hover{transform:translateY(-2px)}
+.sticker[aria-pressed="true"]{box-shadow:inset 0 0 0 3px var(--frame),inset 0 0 0 6px #fff}
+.bg-red{background:var(--c-red);color:#fff}
+.bg-orange{background:var(--c-orange);color:#1A0F00}
+.bg-yellow{background:var(--c-yellow);color:#231C00}
+.bg-green{background:var(--c-green);color:#fff}
+.bg-blue{background:var(--c-blue);color:#fff}
+.bg-white{background:var(--c-white);color:#14213D}
+.cube-tools{display:flex;gap:.6rem;margin-top:.8rem}
+.cube-tools button{font-family:inherit;font-size:.88rem;font-weight:600;padding:.4rem .9rem;border-radius:6px;cursor:pointer;background:transparent;color:var(--text);border:1.5px solid var(--rule)}
+.cube-tools button:hover{border-color:var(--text)}
+
+.detail{background:var(--surface);border:1px solid var(--rule);border-left:8px solid var(--c-blue);border-radius:8px;padding:1.25rem 1.4rem;margin-top:1.1rem;transition:border-color .3s ease}
+.detail h3{font-size:1.25rem;margin-bottom:.2rem}
+.detail p{margin:0;color:var(--muted)}
+
+/* sections */
+section{padding:3rem 0;border-top:1px solid var(--rule)}
+section > .wrap > h2{font-size:clamp(1.7rem,4vw,2.3rem);letter-spacing:-.01em;margin-bottom:1.5rem}
+.prose{max-width:66ch;font-size:1.08rem;margin:0}
+.entry{display:grid;grid-template-columns:200px 1fr;gap:1rem 2rem;padding:1.25rem 0;border-top:1px solid var(--rule)}
+.entry:first-of-type{border-top:0;padding-top:0}
+.entry .meta{color:var(--muted);font-size:.93rem}
+.entry h3{font-size:1.25rem}
+.entry p{margin:.25rem 0 0;color:var(--muted);max-width:60ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:1.1rem 1.2rem}
+.card h3{font-size:1.15rem;margin-bottom:.25rem}
+.card p{margin:0;color:var(--muted);font-size:.97rem}
+.contact dl{margin:0;display:grid;grid-template-columns:120px 1fr;gap:.7rem 1.5rem;max-width:560px}
+.contact dt{color:var(--muted)}
+.contact dd{margin:0;font-weight:600;overflow-wrap:anywhere}
+footer{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem;color:var(--muted);font-size:.9rem}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.1rem}
+.gallery figure{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+.gallery img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--rule)}
+.gallery figcaption{padding:.6rem .8rem;font-size:.92rem;color:var(--muted)}
+.gallery .placeholder{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;text-align:center;padding:1rem;background:repeating-linear-gradient(45deg,var(--rule),var(--rule) 10px,transparent 10px,transparent 20px)}
+
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;gap:2rem;padding:2rem 0}
+  .cube-wrap{justify-self:stretch;max-width:none}
+  .entry{grid-template-columns:1fr;gap:.25rem}
+  .nav ul{gap:1rem}
+  .contact dl{grid-template-columns:90px 1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .sticker,.detail{transition:none}
+  .sticker:hover{transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Primary">
+  <div class="wrap">
+    <a class="brand" href="#top">Krupa M Korishetty</a>
+    <ul>
+      <li><a class="l" href="#focus">Focus</a></li>
+      <li><a class="l" href="#education">Education</a></li>
+      <li><a class="l" href="#leadership">Leadership</a></li>
+      <li><a class="l" href="#interests">Interests</a></li>
+      <li><a class="l" href="#gallery">Gallery</a></li>
+      <li><a class="l" href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+<div class="wrap">
+  <header class="hero">
+    <div>
+      <div class="name-row">
+        <img class="avatar" src="photos/profile.jpg" alt="Krupa M Korishetty">
+        <h1>Krupa M Korishetty</h1>
+      </div>
+      <p class="role">Student at KLE Technological University, Hubli</p>
+      <p class="sub">Technology, public speaking and community leadership.</p>
+      <div class="actions">
+        <a class="btn primary" href="#contact">Get in touch</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/krupakorishetty" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="btn ghost" href="https://github.com/ikrupsss" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+    <div class="cube-wrap" id="focus">
+      <div class="cube" id="cube" role="group" aria-label="Areas of focus. Select one to read more."></div>
+      <div class="cube-tools">
+        <button type="button" id="scramble">Scramble</button>
+      </div>
+      <div class="detail" id="detail" aria-live="polite">
+        <h3 id="detail-title"></h3>
+        <p id="detail-text"></p>
+      </div>
+    </div>
+  </header>
+</div>
+
+<section id="profile">
+  <div class="wrap">
+    <h2>Profile</h2>
+    <p class="prose">I am a university student from a science background with a strong interest in coding, robotics and hackathons. I'm a member of the GDG Belagavi community. Alongside technology, I have developed leadership and communication skills through Model United Nations, public speaking and my time as secretary of the Interact club.</p>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="meta">Present<br>Hubli, Karnataka</div>
+      <div>
+        <h3>KLE Technological University</h3>
+        <p>Formerly BVB College. I grew up in Belagavi and moved to Hubli for university.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="leadership">
+  <div class="wrap">
+    <h2>Leadership and achievements</h2>
+    <div class="entry">
+      <div class="meta">Belagavi</div>
+      <div><h3>Member, GDG Belagavi</h3><p>I'm a member of the Google Developer Groups (GDG) Belagavi community. I attended a DevFest organized by GDG.</p></div>
+    </div>
+    <div class="entry">
+      <div class="meta">Google Developers</div>
+      <!-- EDIT ME: replace the text below with a short line about which badges/skill paths you've earned, if you want -->
+      <div><h3>Google Developer Profile</h3><p>Google skill badges and progress: <a href="https://me.developers.google.com/u/107076097316342479973" target="_blank" rel="noopener noreferrer">me.developers.google.com/u/107076097316342479973</a></p></div>
+    </div>
+    <div class="entry">
+      <div class="meta">Robotics</div>
+      <!-- EDIT ME: add a line or two here about the specific robot you built (parts, what it does, what you learned) -->
+      <div><h3>Robotics</h3><p>I'm entertained by robotics and enjoy building — I've done hands-on work designing and assembling a robot from scratch. I hold an IEEE participation certificate for robotics-related involvement.</p></div>
+    </div>
+    <div class="entry">
+      <div class="meta">School level</div>
+      <!-- EDIT ME: add committee/portfolio and topic debated if you'd like more detail here -->
+      <div><h3>Model United Nations Winner</h3><p>I won at a school-level Model United Nations conference, developing research, debate and negotiation skills under a simulated diplomatic setting.</p></div>
+    </div>
+    <div class="entry">
+      <div class="meta">Former</div>
+      <!-- EDIT ME: add specific events/initiatives you organized as secretary -->
+      <div><h3>Secretary, Interact Club</h3><p>I served as club secretary — I maintained meeting records, coordinated communication between members and leadership, and helped organize club activities and service initiatives.</p></div>
+    </div>
+    <div class="entry">
+      <div class="meta">—</div>
+      <div><h3>Public Speaking</h3><p>I'm comfortable presenting to an audience in both formal and informal settings — from formal MCing (Master of Ceremonies) to more informal hosting — and have presented several talks across MUN committees, tech talks and community events. See the gallery below for moments from these events.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="interests">
+  <div class="wrap">
+    <h2>Interests</h2>
+    <div class="grid">
+      <!-- EDIT ME: add any tournament/rating details you want to mention -->
+      <div class="card"><h3>Chess</h3><p>I play regularly, drawn to the strategic side of the game — planning several moves ahead and reading an opponent's plan.</p></div>
+      <div class="card"><h3>Rubik's Cube</h3><p>I solve the cube as a regular hobby, enjoying the mix of memory and pattern recognition it takes to get faster.</p></div>
+      <div class="card"><h3>Badminton</h3><p>I play badminton for fitness and the quick reflexes and footwork it demands.</p></div>
+      <div class="card"><h3>Poetry and shayari</h3><p>I write poetry and shayaris across themes and moods. See the gallery below for a compiled collection.</p></div>
+      <div class="card"><h3>Graphic design</h3><p>I design visuals, posters and layouts. A sample collection is in the gallery below.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <h2>Gallery</h2>
+    <p class="prose" style="margin-bottom:1.5rem">Photos from events, robotics builds, public speaking, and a few pieces of poetry &amp; design work.</p>
+    <!--
+      HOW TO ADD MORE PHOTOS
+      Copy any <figure> block below, point its <img src="..."> at a new file inside the
+      "photos" folder (kept next to this HTML file), and update the <figcaption>.
+    -->
+    <div class="gallery">
+      <figure>
+        <img src="photos/devfest-gdg-bgm.jpg" alt="Standing beside the GDG BGM letters at DevFest Belgaum 2024">
+        <figcaption>GDG DevFest Belgaum, 2024</figcaption>
+      </figure>
+      <figure>
+        <img src="photos/gdg-devfest-certificate.png" alt="Certificate of participation, Google DevFest 2024, Belgaum">
+        <figcaption>Certificate of participation — Google DevFest 2024, GDG Belgaum</figcaption>
+      </figure>
+      <figure>
+        <img src="photos/devfest-crowd.png" alt="Audience view of a DevFest talk on stage">
+        <figcaption>At a DevFest session</figcaption>
+      </figure>
+      <figure>
+        <img src="photos/robot-build.jpg" alt="A robot built with an ultrasonic sensor, microcontroller and wheels">
+        <figcaption>The robot I built</figcaption>
+      </figure>
+      <figure>
+        <img src="photos/roboquest-bytebots.jpg" alt="Team Bytebots at RoboQuest 2026, IEEE robotics competition, finalists">
+        <figcaption>RoboQuest 2026 — Team Bytebots, finalists</figcaption>
+      </figure>
+      <figure>
+        <img src="photos/ieee-roboquest-certificate.jpg" alt="IEEE RoboQuest certificate of participation">
+        <figcaption>IEEE RoboQuest certificate of participation</figcaption>
+      </figure>
+      <figure>
+        <img src="photos/public-speaking-podium.jpg" alt="Speaking at a podium at a formal event">
+        <figcaption>Speaking at a formal event</figcaption>
+      </figure>
+      <figure>
+        <img src="photos/public-speaking-event.jpg" alt="Speaking with a microphone at an event">
+        <figcaption>Hosting at an event</figcaption>
+      </figure>
+      <figure>
+        <img src="photos/public-speaking-auditorium.jpg" alt="On stage with a microphone in front of a full auditorium">
+        <figcaption>Speaking to a full auditorium</figcaption>
+      </figure>
+      <figure>
+        <img src="photos/vrittanta-award.jpg" alt="Award presentation on stage at Vrittanta fest">
+        <figcaption>First place, "Shipwreck" event — Vrittanta, KLE college fest</figcaption>
+      </figure>
+      <figure>
+        <img src="photos/vrittanta-panel.jpg" alt="On a panel discussion on stage at Vrittanta">
+        <figcaption>Panel at Vrittanta, KLE college fest</figcaption>
+      </figure>
+      <figure>
+        <img src="photos/pu-topper-felicitation.jpg" alt="Felicitation on stage as a PU II Science topper">
+        <figcaption>PU II Science topper felicitation, KLE Independent PU College</figcaption>
+      </figure>
+      <figure>
+        <img src="photos/icat-result.jpg" alt="iCAT exam result screenshot showing eligibility for internship">
+        <figcaption>iCAT exam result — cleared for internship eligibility</figcaption>
+      </figure>
+      <figure>
+        <img src="photos/internship-offer-letter.jpg" alt="Data Analytics Internship offer letter from iStudio">
+        <figcaption>Data Analytics Internship offer, iStudio</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <dl>
+      <dt>Email</dt><dd><a href="mailto:i.krupsss@gmail.com">i.krupsss@gmail.com</a></dd>
+      <dt>Phone</dt><dd><a href="tel:+919110869627">+91 91108 69627</a></dd>
+      <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/krupakorishetty" target="_blank" rel="noopener noreferrer">linkedin.com/in/krupakorishetty</a></dd>
+      <dt>GitHub</dt><dd><a href="https://github.com/ikrupsss" target="_blank" rel="noopener noreferrer">github.com/ikrupsss</a></dd>
+      <dt>Location</dt><dd>Hubli, Karnataka, India</dd>
+    </dl>
+  </div>
+</section>
+</main>
+
+<div class="wrap"><footer>© Krupa M Korishetty</footer></div>
+
+<script>
+(function(){
+  var ICONS = {
+    code: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 3 12 9 6"></polyline><polyline points="15 6 21 12 15 18"></polyline></svg>',
+    bolt: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>',
+    robot: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="9" width="14" height="10" rx="2"></rect><circle cx="9" cy="14" r="1.2" fill="currentColor" stroke="none"></circle><circle cx="15" cy="14" r="1.2" fill="currentColor" stroke="none"></circle><line x1="12" y1="9" x2="12" y2="4"></line><circle cx="12" cy="3" r="1.2" fill="currentColor" stroke="none"></circle></svg>',
+    diamond: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 12 12 22 2 12 12 2"></polygon></svg>',
+    globe: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18z"></path></svg>',
+    mic: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"></rect><path d="M5 10a7 7 0 0 0 14 0"></path><line x1="12" y1="17" x2="12" y2="21"></line><line x1="8" y1="21" x2="16" y2="21"></line></svg>',
+    people: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"></circle><path d="M2 20c0-3.3 3.1-6 7-6s7 2.7 7 6"></path><circle cx="17" cy="8" r="2.6"></circle><path d="M16 14.2c2.9.5 5 2.6 5 5.8"></path></svg>',
+    cube: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 21 7 21 17 12 22 3 17 3 7 12 2"></polygon><polyline points="3 7 12 12 21 7"></polyline><line x1="12" y1="12" x2="12" y2="22"></line></svg>',
+    feather: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.2 3.8c-3.5 3.5-9.4 3.4-13 7s-3.5 9.5-3.5 9.5 6-.1 9.5-3.5 3.5-9.5 7-13z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>'
+  };
+  var items = [
+    {k:"Coding", c:"blue", icon:"code", t:"Coding", d:"I'm interested in coding and in turning ideas into working software."},
+    {k:"Hackathons", c:"orange", icon:"bolt", t:"Hackathons", d:"I enjoy the pace of hackathons: a team, a problem and a deadline."},
+    {k:"Robotics", c:"green", icon:"robot", t:"Robotics", d:"I'm entertained by robotics and love building — I hold an IEEE participation certificate."},
+    {k:"GDG Belagavi", c:"white", icon:"diamond", t:"GDG Belagavi", d:"I'm a member of the GDG Belagavi community, and attended a GDG DevFest."},
+    {k:"MUN", c:"red", icon:"globe", t:"Model United Nations", d:"I'm a school-level MUN winner, with experience in research, debate and diplomacy."},
+    {k:"Public speaking", c:"yellow", icon:"mic", t:"Public speaking", d:"I'm comfortable presenting and speaking in front of an audience."},
+    {k:"Interact Club", c:"green", icon:"people", t:"Interact Club", d:"I'm a former secretary of the Interact club."},
+    {k:"Chess, cube & badminton", c:"blue", icon:"cube", t:"Chess, Cube & Badminton", d:"I play chess and badminton, and solve the Rubik's cube."},
+    {k:"Poetry and design", c:"orange", icon:"feather", t:"Poetry and graphic design", d:"I write poetry and shayaris, and design graphics — see the gallery."}
+  ];
+  var colors = ["red","orange","yellow","green","blue","white"];
+  var colorVar = {red:"--c-red",orange:"--c-orange",yellow:"--c-yellow",green:"--c-green",blue:"--c-blue",white:"--c-white"};
+  var state = items.map(function(i){return i.c});
+  var cube = document.getElementById("cube");
+  var title = document.getElementById("detail-title");
+  var text = document.getElementById("detail-text");
+  var detail = document.getElementById("detail");
+  var selected = 0, btns = [];
+
+  items.forEach(function(it, idx){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "sticker";
+    b.innerHTML = ICONS[it.icon] + "<span>" + it.k + "</span>";
+    b.setAttribute("aria-pressed","false");
+    b.addEventListener("click", function(){ select(idx); });
+    cube.appendChild(b); btns.push(b);
+  });
+  function paint(){
+    btns.forEach(function(b,i){ b.className = "sticker bg-" + state[i]; });
+    detail.style.borderLeftColor = "var(" + colorVar[state[selected]] + ")";
+  }
+  function select(idx){
+    selected = idx;
+    btns.forEach(function(b,i){ b.setAttribute("aria-pressed", i===idx ? "true":"false"); });
+    title.textContent = items[idx].t;
+    text.textContent = items[idx].d;
+    detail.style.borderLeftColor = "var(" + colorVar[state[idx]] + ")";
+  }
+  document.getElementById("scramble").addEventListener("click", function(){
+    state = items.map(function(){ return colors[Math.floor(Math.random()*colors.length)]; });
+    paint();
+  });
+  paint(); select(0);
+})();
+</script>
+</body>
+</html>
